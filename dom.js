@@ -8,9 +8,14 @@
 			
 			this.element = null;
 			this.elements = [];
+			this.isQ = true
 			
 			if(typeof selector == 'string')
 				this.elements = rootElement.querySelectorAll(selector)
+			else if ( selector.isQ == true){
+				this.elements = selector.elements
+				this.length = selector.length
+			}
 			else{
 				this.elements[0] = selector
 				this.length = 1
