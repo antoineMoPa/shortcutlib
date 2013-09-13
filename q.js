@@ -1,31 +1,55 @@
+var shortcutLib;
 
-q.ready(function (){
+if(typeof q !== 'undefined'){
+	shortcutLib.previousQ = q;
+}
+
+(function(q){
 	
-	var editor = q.windowRenderer(liveEditor);
-})
-
-/*
-function getFeedComponent(){
-	return {
-		type : "experimental/qcomponent",
-		author : {
-			name : "Antoine Morin-Paulhus",
-			url : "http://a-mo-pa.com"
-		},
-		comment : "This is a component",
-		created : 1375922907,
-		modified : 1375922907,
-		data : {
-			html : "<div class='.test'>[endqueue test]</div>",
-			css : ".test {background:red;}",
-			js : "",
-			endqueue : {
-				test : "YEAH !"
-			}
+	q = {};
+	
+	//Utilities
+	
+	q.callbacks = {};
+	
+	q.callbacks.callbacks = [];
+	
+	q.callbacks.add = function(refName,callback){
+		
+		if(typeof q.callbacks.callbacks[refName] === 'undefined')
+			q.callbacks.callbacks[refName] = []
+			
+		q.callbacks.callbacks[refName].push(callback)
+	}
+	
+	q.callbacks.execute = function(refName){
+		
+		if(typeof q.callbacks.callbacks[refName] === 'undefined')
+			return
+			
+		for(var i = 0; i < q.callbacks.callbacks[refName].length; i++){
+			q.callbacks.callbacks[refName][i]()
 		}
 	}
-}
-*/
+	
+	q.ready = function(callback){
+		if(typeof callback === 'undefined'){
+			q.callbacks.execute("domready")
+		}
+		else{
+			q.callbacks.add("domready",callback)
+		}
+	}
+	
+	q.inArray = function(a,obj){
+		return (a.indexOf(obj) === -1)?false:true;
+	}
+	
+	shortcutLib = q;
+	
+})(shortcutLib);
+
+q = shortcutLib;
 (function(q){
 	/*[dom]*/
 	

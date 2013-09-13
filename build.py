@@ -3,7 +3,7 @@ import sys
 
 filenames = []
 
-filenames.append('main.js')
+filenames.append('shortcutLib.js')
 filenames.append('dom.js')
 filenames.append('ajax.js')
 
