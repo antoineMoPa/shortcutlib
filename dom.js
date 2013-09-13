@@ -38,7 +38,7 @@
 		var $ = this;
 		
 		if(typeof(content) == "string"){
-			content = $.utils.HTMLStringToFragment(content);
+			content = q.d.utils.HTMLStringToFragment(content);
 		}
 		$.each(function(){
 			rootElement.body.insertBefore(content, $.element);
@@ -51,7 +51,7 @@
 		var $ = this;
 		
 		if(typeof(content) == "string"){
-			content = $.utils.html(content);
+			content = q.d.utils.html(content);
 		}
 		$.each(function(){
 			$.element.
