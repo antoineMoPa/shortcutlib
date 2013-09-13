@@ -140,7 +140,7 @@ q = shortcutLib;
 		var $ = this;
 		
 		if(typeof(content) == "string"){
-			content = $.utils.html(content);
+			content = q.d.utils.html(content);
 		}
 		
 		$.each(function(){
