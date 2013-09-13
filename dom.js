@@ -32,6 +32,20 @@
 		return new q.d(selector,true); 
 	}
 	
+	q.d.fn.find = function (selector){
+		
+		var rootElement = this.elements[0]
+		
+		this.element = null;
+		this.elements = [];
+		
+		if(typeof selector == 'string')
+			this.elements = rootElement.querySelectorAll(selector)
+			
+		return this
+	}
+	
+	
 	//Manipulate
 	
 	q.d.fn.before = function(content){

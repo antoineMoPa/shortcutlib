@@ -86,6 +86,20 @@ q = shortcutLib;
 		return new q.d(selector,true); 
 	}
 	
+	q.d.fn.find = function (selector){
+		
+		var rootElement = this.elements[0]
+		
+		this.element = null;
+		this.elements = [];
+		
+		if(typeof selector == 'string')
+			this.elements = rootElement.querySelectorAll(selector)
+			
+		return this
+	}
+	
+	
 	//Manipulate
 	
 	q.d.fn.before = function(content){
@@ -222,8 +236,7 @@ q = shortcutLib;
 		var $ = this;
 		
 		$.each(function(){
-			$.element.className.replace(className,"");
-			$.element.className += " "+className;
+			$.element.classList.add(className)
 		});
 		return $;
 	}
@@ -232,7 +245,7 @@ q = shortcutLib;
 		var $ = this;
 		
 		$.each(function(){
-			$.element.className = $.element.className.replace(className,"");
+			$.element.classList.remove(className)
 		});
 		return $;
 	}
@@ -241,13 +254,7 @@ q = shortcutLib;
 		var $ = this;
 		
 		$.each(function(){
-			if($.element.className.indexOf(className) != -1){
-				$.element.className.replace(className,"");
-			}
-			else{
-				$.element.className.replace(className,"");
-				$.element.className += " "+className;
-			}
+			$.element.classList.toggle(className)
 		});
 		return $;
 	}
