@@ -4,6 +4,8 @@ if(typeof q !== 'undefined'){
 	shortcutLib.previousQ = q;
 }
 
+q = shortcutLib;
+
 (function(q){
 	
 	q = {};
