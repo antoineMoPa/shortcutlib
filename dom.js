@@ -212,6 +212,19 @@
 		
 		return $;
 	}
+	
+	q.d.fn.one = function(eventType,callback){
+		var $ = this;
+		
+		$.each(function(){
+			$.element.addEventListener(eventType,function(event){
+				$.element.removeEventListener(eventType,arguments.callee)
+				callback.call($.element,event)
+			});
+		});
+		
+		return $;
+	}
 
 	//Styling
 	
