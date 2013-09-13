@@ -264,6 +264,10 @@ q = shortcutLib;
 		return $;
 	}
 	
+	q.d.fn.hasClass = function(className){
+		return this.elements[0].classList.contains(className)
+	}
+	
 	//Events
 	
 	q.d.fn.on = function(eventType,callback){
