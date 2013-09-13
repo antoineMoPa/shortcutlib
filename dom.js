@@ -168,8 +168,7 @@
 		var $ = this;
 		
 		$.each(function(){
-			$.element.className.replace(className,"");
-			$.element.className += " "+className;
+			$.element.classList.add(className)
 		});
 		return $;
 	}
@@ -178,7 +177,7 @@
 		var $ = this;
 		
 		$.each(function(){
-			$.element.className = $.element.className.replace(className,"");
+			$.element.classList.remove(className)
 		});
 		return $;
 	}
@@ -187,13 +186,7 @@
 		var $ = this;
 		
 		$.each(function(){
-			if($.element.className.indexOf(className) != -1){
-				$.element.className.replace(className,"");
-			}
-			else{
-				$.element.className.replace(className,"");
-				$.element.className += " "+className;
-			}
+			$.element.classList.toggle(className)
 		});
 		return $;
 	}
