@@ -258,9 +258,10 @@ q = shortcutLib;
 		var $ = this;
 		
 		$.each(function(){
-			$.element.addEventListener(eventType,function(event){
+			var el = $.element
+			el.addEventListener(eventType,function(event){
 				
-				callback.call($.element,event)
+				callback.call(el,event)
 			});
 		});
 		
@@ -271,11 +272,14 @@ q = shortcutLib;
 		var $ = this;
 		
 		$.each(function(){
-			$.element.addEventListener(eventType,internalEventListener);
+			
+			var el = $.element
+			
+			el.addEventListener(eventType,internalEventListener);
 			
 			function internalEventListener(event){
-				$.element.removeEventListener(eventType,internalEventListener)
-				callback.call($.element,event)
+				el.removeEventListener(eventType,internalEventListener)
+				callback.call(el,event)
 			}
 		});
 		
