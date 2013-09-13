@@ -217,10 +217,12 @@
 		var $ = this;
 		
 		$.each(function(){
-			$.element.addEventListener(eventType,function(event){
-				$.element.removeEventListener(eventType,arguments.callee)
+			$.element.addEventListener(eventType,internalEventListener);
+			
+			function internalEventListener(event){
+				$.element.removeEventListener(eventType,internalEventListener)
 				callback.call($.element,event)
-			});
+			}
 		});
 		
 		return $;
