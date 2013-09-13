@@ -258,9 +258,9 @@ q = shortcutLib;
 		var $ = this;
 		
 		$.each(function(){
-			$.element.addEventListener(eventType,function(){
+			$.element.addEventListener(eventType,function(event){
 				
-				callback.call($.element)
+				callback.call($.element,event)
 			});
 		});
 		
