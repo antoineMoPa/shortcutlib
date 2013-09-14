@@ -55,13 +55,13 @@ q = shortcutLib;
 (function(q){
 	/*[dom]*/
 	
-	rootElement = document;
+	rootElement = document
 	
 	q.d = function(selector,initing){
 		if( typeof initing !== 'undefined' && initing == true){
 			
-			this.element = null;
-			this.elements = [];
+			this.element = null
+			this.elements = []
 			this.isQ = true
 			
 			if(typeof selector == 'string')
@@ -108,23 +108,23 @@ q = shortcutLib;
 	//Manipulate
 	
 	q.d.fn.before = function(content){
-		var $ = this;
+		var $ = this
 		
 		if(typeof(content) == "string"){
-			content = q.d.utils.HTMLStringToFragment(content);
+			content = q.d.utils.HTMLStringToFragment(content)
 		}
 		$.each(function(){
-			rootElement.body.insertBefore(content, $.element);
-		});
+			rootElement.body.insertBefore(content, $.element)
+		})
 		
-		return $;
+		return $
 	}
 
 	q.d.fn.after = function(content){
 		var $ = this;
 		
 		if(typeof(content) == "string"){
-			content = q.d.utils.html(content);
+			content = q.d.utils.html(content)
 		}
 		$.each(function(){
 			$.element.
@@ -145,11 +145,11 @@ q = shortcutLib;
 			return q
 			
 		if(typeof content === "string"){
-			content = q.d.utils.html(content);
+			content = q.d.utils.html(content)
 		}
 		
 		$.each(function(){
-			$.element.appendChild(content);
+			$.element.appendChild(content)
 		})
 		
 		return $;
@@ -159,7 +159,7 @@ q = shortcutLib;
 		var $ = this;
 		
 		if(typeof(content) == "string"){
-			content = q.d.utils.html(content);
+			content = q.d.utils.html(content)
 		}
 		
 		$.each(function(){
@@ -200,14 +200,14 @@ q = shortcutLib;
 		if(typeof newText === 'undefined'){
 			var text = "";
 			$.each(function(){
-				text += $.element.textContent;
+				text += $.element.textContent
 			})
 			
 			return text
 		}
 		else{
 			$.each(function(){
-				$.element.textContent = newText;
+				$.element.textContent = newText
 			})
 		}
 		
@@ -220,15 +220,15 @@ q = shortcutLib;
 		if(typeof newHtml === 'undefined'){
 			var html = "";
 			$.each(function(){
-				html += $.element.innerHTML;
+				html += $.element.innerHTML
 			})
 			
 			return html
 		}
 		else{
 			$.each(function(){
-				$.element.innerHTML = newHtml;
-				$.element.innerHTML = newHtml;
+				$.element.innerHTML = newHtml
+				$.element.innerHTML = newHtml
 			})
 		}
 		
@@ -309,7 +309,7 @@ q = shortcutLib;
 
 		for(rule in rules){
 			$.each(function(){
-				$.element.style[rule] = rules[rule];
+				$.element.style[rule] = rules[rule]
 			})			
 		}
 
@@ -319,7 +319,7 @@ q = shortcutLib;
 	q.d.fn.hide = function(){
 		this.each(function(){
 			this.attr("data-display",this.element.style.display)
-			this.element.style.display = "none";
+			this.element.style.display = "none"
 		})
 		return this
 	}
@@ -423,7 +423,7 @@ q = shortcutLib;
 	
 	q.d.fn.each = function(callback){
 		var $ = this
-		for(var i = 0 i < $.elements.length i++ ){
+		for(var i = 0; i < $.elements.length; i++ ){
 			$.element = $.elements[i]
 			
 			if(callback.call(q.d($.elements[i])) == -1){
@@ -442,43 +442,42 @@ q = shortcutLib;
 	
 	q.d.utils.html = function (htmlString){	
 		var frag = rootElement.createDocumentFragment(),
-			temp = rootElement.createElement('div');
+			temp = rootElement.createElement('div')
 		
 		temp.innerHTML = htmlString;
 		
 		while (temp.firstChild) {
-			frag.appendChild(temp.firstChild);
+			frag.appendChild(temp.firstChild)
 		}
 		
 		return frag;
 	}
 	
 	q.d.utils.nodeList = function(domElement){
-		var fragment = rootElement.createDocumentFragment();
+		var fragment = rootElement.createDocumentFragment()
 		fragment.appendChild(domElement);
 		return fragment.childNodes;
 	}
 	
 	q.d.utils.addStyle = function (style){
 		if(typeof(style) == "string"){
-			var css = rootElement.createElement("style");
-			css.type = "text/css";
-			css.innerHTML = style;
-			q.d("head").append(css);
+			var css = rootElement.createElement("style")
+			css.type = "text/css"
+			css.innerHTML = style
+			q.d("head").append(css)
 		}
 	}
 	
 	q.extend = function (object,defaults){
 		
 		if(typeof object === 'undefined'){
-			return defaults;
+			return defaults
 		}
 		
-		for(var setting in defaults){
-			if(typeof object[setting] === 'undefined'){
+		for(var setting in defaults)
+			if(typeof object[setting] === 'undefined')
 				object[setting] = defaults[setting]
-			}
-		}
+		
 		return object
 	}
 	
