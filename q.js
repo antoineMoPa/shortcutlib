@@ -380,31 +380,51 @@ q = shortcutLib;
 	
 	q.d.fn.attr = function(attribute,value){
 		if (typeof value === 'undefined'){
-			return this.elements[0].getAttribute(attribute);
+			return this.elements[0].getAttribute(attribute)
 		}
 		else{
-			this.elements[0].setAttribute(attribute,value);
+			this.elements[0].setAttribute(attribute,value)
 			return this;
 		}
+	}
+	
+	//Merge elements with other q.d() instances
+	
+	q.d.fn.and = function(otherInstance){
+		this.element = null
+		this.elements = this.elements.concat(otherInstance.elements)
+		this.length = this.elements.length
+		
+		return this
 	}
 	
 	//Access dom
 	
 	q.d.fn.item = function(index){
-		return this.elements[index];
+		if(typeof this.elements[index] != 'undefined')
+			return this.elements[index]
+		else
+			return null
+	}
+	
+	q.d.fn.eq = function(index){
+		if(typeof this.elements[index] != 'undefined')
+			return q.d(this.elements[index])
+		else
+			return null
 	}
 	
 	q.d.fn.parent = function(){
-		var el = this.elements[0];
-		this.elements = [];
-		this.elements[0] = this.el.parentNode;
-		return this;
+		var el = this.elements[0]
+		this.elements = []
+		this.elements[0] = this.el.parentNode
+		return this
 	}
 	
 	q.d.fn.each = function(callback){
-		var $ = this;
-		for(var i = 0; i < $.elements.length; i++ ){
-			$.element = $.elements[i];
+		var $ = this
+		for(var i = 0 i < $.elements.length i++ ){
+			$.element = $.elements[i]
 			
 			if(callback.call(q.d($.elements[i])) == -1){
 				return $
