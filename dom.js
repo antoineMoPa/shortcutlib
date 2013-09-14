@@ -351,7 +351,8 @@
 		var $ = this;
 		for(var i = 0; i < $.elements.length; i++ ){
 			$.element = $.elements[i];
-			if(callback.call($) == -1){
+			
+			if(callback.call(q.d($.elements[i])) == -1){
 				return $
 			}
 		}
