@@ -294,10 +294,8 @@ q = shortcutLib;
 		var $ = this;
 		
 		$.each(function(){
-			var el = $.element
-			el.addEventListener(eventType,function(event){
-				
-				callback.call(el,event)
+			$.element.addEventListener(eventType,function(event){
+				callback.call(q.d($.element),event)
 			});
 		});
 		
@@ -396,6 +394,30 @@ q = shortcutLib;
 		return this
 	}
 	
+    //Absolute positioning
+    
+    q.d.fn.top = function(arg){
+        if(typeof arg == "undefined")
+            return parseInt(this.elements[0].style.top)
+        if(typeof arg == "string" && arg.indexOf("px") != -1){
+            this.elements[0].style.top = arg
+            return this
+        }
+        this.elements[0].style.top = arg+"px"
+        return this
+    }
+
+    q.d.fn.left = function(arg){
+        if(typeof arg == "undefined")
+            return this.elements[0].style.left
+        if(typeof arg == "string" && arg.indexOf("px") != -1){
+            this.elements[0].style.left = arg
+            return this
+        }
+        this.elements[0].style.left = arg+"px"
+        return this
+    }
+    
 	//Data
 	
 	q.d.fn.attr = function(attribute,value){
