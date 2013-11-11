@@ -1,3 +1,22 @@
+/*
+    GPL javascript library for dom manipulation and more
+    Copyright (C) 2013  Antoine Morin-Paulhus
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+*/
+
 var shortcutLib;
 
 if(typeof q !== 'undefined'){
@@ -5,6 +24,7 @@ if(typeof q !== 'undefined'){
 }
 
 q = shortcutLib;
+
 
 (function(q){
 	
@@ -335,7 +355,7 @@ q = shortcutLib;
 		if(typeof newHeight === 'undefined'){
 			var clientHeight = this.elements[0].clientHeight
 			
-			return	(clientHeight == 0 ) ?
+			return	(clientHeight != 0 ) ?
 					clientHeight :
 					this.elements[0].innerHeight
 		}
@@ -351,7 +371,7 @@ q = shortcutLib;
 		if(typeof newWidth === 'undefined'){
 			var clientWidth = this.elements[0].clientWidth
 			
-			return	(clientWidth == 0 ) ?
+			return	(clientWidth != 0 ) ?
 					clientWidth :
 					this.elements[0].innerWidth
 		}

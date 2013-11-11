@@ -281,7 +281,7 @@
 		if(typeof newHeight === 'undefined'){
 			var clientHeight = this.elements[0].clientHeight
 			
-			return	(clientHeight == 0 ) ?
+			return	(clientHeight != 0 ) ?
 					clientHeight :
 					this.elements[0].innerHeight
 		}
@@ -297,7 +297,7 @@
 		if(typeof newWidth === 'undefined'){
 			var clientWidth = this.elements[0].clientWidth
 			
-			return	(clientWidth == 0 ) ?
+			return	(clientWidth != 0 ) ?
 					clientWidth :
 					this.elements[0].innerWidth
 		}
