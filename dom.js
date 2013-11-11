@@ -41,13 +41,15 @@
 		
 		var rootElement = this.elements[0]
 		
-		this.element = null;
-		this.elements = [];
+        var ret = q.d(this)
+        
+		ret.element = null;
+		ret.elements = [];
 		
 		if(typeof selector == 'string')
-			this.elements = rootElement.querySelectorAll(selector)
+			ret.elements = rootElement.querySelectorAll(selector)
 			
-		return this
+		return ret
 	}
 	
 	
