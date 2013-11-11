@@ -220,14 +220,13 @@
 		var $ = this;
 		
 		$.each(function(){
-			$.element.addEventListener(eventType,function(event){
-				callback.call(q.d($.element),event)
-			});
+			callback.bind(q.d($.element))
+            $.element.addEventListener(eventType,callback);
 		});
 		
 		return $;
 	}
-	
+
 	q.d.fn.one = function(eventType,callback){
 		var $ = this;
 		
@@ -245,6 +244,13 @@
 		
 		return $;
 	}
+    
+    q.d.fn.unbind = function(event,listener){
+        this.each(function(){
+            this.elements[0].removeEventListener(event,listener)
+        })
+        return this
+    }
 
 	//Styling
 	
