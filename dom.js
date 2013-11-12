@@ -332,8 +332,8 @@
     
     q.d.fn.top = function(arg){
         if(typeof arg == "undefined")
-            return parseInt(this.elements[0].style.top) || 0
-        if(typeof arg == "string" && arg.indexOf("px") != -1){
+            return this.elements[0].offsetTop || 0
+        if(typeof arg == "string"){
             this.elements[0].style.top = arg
             return this
         }
@@ -343,23 +343,12 @@
 
     q.d.fn.left = function(arg){
         if(typeof arg == "undefined")
-            return parseInt(this.elements[0].style.left) || 0
-        if(typeof arg == "string" && arg.indexOf("px") != -1){
+            return this.elements[0].offsetLeft
+        if(typeof arg == "string"){
             this.elements[0].style.left = arg
             return this
         }
         this.elements[0].style.left = arg+"px"
-        return this
-    }
-
-    q.d.fn.right = function(arg){
-        if(typeof arg == "undefined")
-            return parseInt(this.elements[0].style.right) || 0
-        if(typeof arg == "string" && arg.indexOf("px") != -1){
-            this.elements[0].style.right = arg
-            return this
-        }
-        this.elements[0].style.right = arg+"px"
         return this
     }
     
