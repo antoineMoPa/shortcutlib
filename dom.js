@@ -351,6 +351,17 @@
         this.elements[0].style.left = arg+"px"
         return this
     }
+
+    q.d.fn.right = function(arg){
+        if(typeof arg == "undefined")
+            return parseInt(this.elements[0].style.right) || 0
+        if(typeof arg == "string" && arg.indexOf("px") != -1){
+            this.elements[0].style.right = arg
+            return this
+        }
+        this.elements[0].style.right = arg+"px"
+        return this
+    }
     
 	//Data
 	
