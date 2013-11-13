@@ -470,11 +470,13 @@ q = shortcutLib;
 			return null
 	}
 	
-	q.d.fn.parent = function(){
+	q.d.fn.parent = function(nthParent){
 		var el = this.elements[0]
-		this.elements = []
-		this.elements[0] = el.parentNode
-		return this
+        
+        while(nthParent--)
+            el = el.parentNode
+
+		return q.d(el)
 	}
     
 	/*
