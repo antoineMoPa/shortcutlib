@@ -399,7 +399,7 @@
 	q.d.fn.parent = function(){
 		var el = this.elements[0]
 		this.elements = []
-		this.elements[0] = this.el.parentNode
+		this.elements[0] = el.parentNode
 		return this
 	}
     
