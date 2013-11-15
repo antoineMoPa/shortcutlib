@@ -47,9 +47,9 @@ Example:
     q.d(".class").eq()
     q.d(".class").parent()
     q.d(".class").each(function(){
-                                    //this.element is the current dom element
-                                    q.d(this.element).addClass("classname")
-                                })
+                           //this.element is the current dom element
+                           q.d(this.element).addClass("classname")
+                       })
     q.d(".class").first()
 ## Why ?
 Because.
