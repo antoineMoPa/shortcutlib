@@ -7,7 +7,28 @@ Don't you feel sad to depend on jQuery for all your projects? I personnaly wante
 
 ## How to use
 
-Almost like jQuery, but jQuery() ( or $() ) is replaced with q.d()
+Almost like jQuery, but $() is replaced with q.d()
+
+## Using q.ready()
+
+I did not implement a function that tries to guess when the page is loaded, like jQuery.ready().
+The method for doing this is different from browser to browser and I did not feel like writing
+browser specific code in this library. A q.ready() method exists, but you have to call it at the end of your HTML.
+
+In your HTML:
+
+    [...]
+    <script>
+        q.ready()
+    </script>
+    </body>
+    </html>
+
+In your Javascript:
+
+    q.ready(function(){
+        doYourStuff()
+    })
 
 ## Selecting stuff
 
@@ -20,7 +41,7 @@ Example:
     q.d(".parent-class .myClass")
     q.d(".parent-class > div:nth-child(10):hover:not(.blue)")
 
-## Implemented functions
+## Implemented methods
     q.d(".class").find()
     q.d(".class").before()
     q.d(".class").after()
