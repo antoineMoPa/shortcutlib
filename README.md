@@ -10,12 +10,16 @@ Don't you feel sad to depend on jQuery for all your projects? I personnaly wante
 Almost like jQuery, but jQuery() ( or $() ) is replaced with q.d()
 
 ## Selecting stuff
+
 q.d("selector") uses querySelectorAll() (And its syntax)
+
 Example:
+
     q.d(".myclass")
     q.d("#myId")
     q.d(".parent-class .myClass")
     q.d(".parent-class > div:nth-child(10):hover:not(.blue)")
+
 ## Implemented functions
     q.d(".class").find()
     q.d(".class").before()
