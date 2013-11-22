@@ -5,7 +5,7 @@ GPL, jQuery-like javascript library
 
 Warning: shortutLib is not ready for production yet. I recommend Zepto.js for similar features and lightness.
 
-Don't you feel sad to depend on jQuery for all your projects? I personnaly wanted to implement the jQuery functions I use the most in a lightweight library that does not try to fix old browsers.
+Don't you feel sad to depend on jQuery for all your projects? I personnaly wanted to implement the jQuery functions I use the most in a lightweight library that does not try to fix old browsers. In other words, I do not support weird browsers such as IE8.
 
 ## How to use
 
@@ -76,5 +76,11 @@ Example:
                            q.d(this.element).addClass("classname")
                        })
     q.d(".class").first()
-## Why creating this when jQuery exists?
+## Non-goals
+
+* Implement all jQuery functions
+* Support old browsers (A goal, however, is to support Chrome and Firefox)
+* It was once a goal to include a custom preprocessor for CSS and HTML, but it was a bad idea !
+
+## Why are you coding this while jQuery exists?
 Because of reasons.
