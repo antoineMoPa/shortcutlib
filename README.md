@@ -1,7 +1,9 @@
-shortcutlib
+shortcutLib
 ===========
 
-Unstable[Not yet stable], GPL, jQuery-like javascript library
+GPL, jQuery-like javascript library
+
+Warning: shortutLib is not ready for production yet. I recommend Zepto.js for similar features and lightness.
 
 Don't you feel sad to depend on jQuery for all your projects? I personnaly wanted to implement the jQuery functions I use the most in a lightweight library that does not try to fix old browsers.
 
@@ -11,9 +13,7 @@ Almost like jQuery, but $() is replaced with q.d()
 
 ## Using q.ready()
 
-I did not implement a function that tries to guess when the page is loaded, like jQuery.ready().
-The method for doing this is different from browser to browser and I did not feel like writing
-browser specific code in this library. A q.ready() method exists, but you have to call it at the end of your HTML.
+A q.ready() method exists, but you have to call it at the end of your HTML.
 
 In your HTML:
 
@@ -76,5 +76,5 @@ Example:
                            q.d(this.element).addClass("classname")
                        })
     q.d(".class").first()
-## Why ?
-Because.
+## Why creating this when jQuery exists?
+Because of reasons.
