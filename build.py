@@ -6,6 +6,7 @@ filenames = []
 filenames.append('shortcutLib.js')
 filenames.append('dom.js')
 filenames.append('ajax.js')
+filenames.append('unit.js')
 filenames.append('end.js')
 
 with open('q.js', 'w') as outfile:
