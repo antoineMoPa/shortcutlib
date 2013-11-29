@@ -82,5 +82,9 @@ Example:
 * Support old browsers (A goal, however, is to support Chrome and Firefox)
 * It was once a goal to include a custom preprocessor for CSS and HTML, but it was a bad idea !
 
+## To-Do
+
+Write tests in the current test folder (The folder already exists because I started to test q.assert, q.equal, etc.).
+
 ## Why are you coding this while jQuery exists?
 Because of reasons.
